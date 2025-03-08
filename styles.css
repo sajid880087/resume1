@@ -1,0 +1,701 @@
+/* General Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #0a0a0a; /* Darker background */
+    color: #ffffff;
+}
+
+
+
+
+/* Header Styling */
+.header {
+    background-color: #0a0a0a; /* Dark background */
+    padding: 20px 10%; /* Adds padding for space on the sides */
+    position: fixed; /* Fixes the header at the top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Keeps the header above other sections */
+    box-shadow: 0 4px 15px rgba(0, 255, 204, 0.3); /* Soft shadow for a sleek look */
+}
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Space between the logo and nav links */
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Logo */
+.logo-img {
+    width: 150px; /* Adjust logo size */
+    height: auto;
+    transition: 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.logo-img:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+/* Nav Links Styling */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px; /* Space between each link */
+}
+
+.nav-link {
+    color: #ffffff; /* White text color */
+    font-size: 1.4rem; /* Font size for the links */
+    text-decoration: none; /* Removes underlines */
+    text-transform: uppercase; /* Uppercase for the links */
+    position: relative; /* Needed for the hover underline */
+    transition: 0.3s ease; /* Smooth transition effect */
+}
+
+.nav-link:hover {
+    color: #00ffcc; /* Neon color on hover */
+}
+
+.nav-link:hover::after {
+    content: '';
+    position: absolute;
+    bottom: -5px; /* Position the line below the text */
+    left: 0;
+    width: 100%;
+    height: 2px; /* Line height */
+    background-color: #00ffcc; /* Neon underline */
+}
+
+/* Media Query for Mobile Devices */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column; /* Stack the logo and nav links vertically */
+        align-items: flex-start;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 15px; /* Smaller gap between items on mobile */
+    }
+
+    .nav-link {
+        font-size: 1.2rem; /* Slightly smaller font for mobile */
+    }
+}
+
+
+
+
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    padding: 50px;
+    background: radial-gradient(circle, rgba(0, 255, 204, 0.2), #0d0d0d);
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 0 40px rgba(0, 255, 204, 0.5);
+    animation: heroGlow 3s infinite alternate ease-in-out;
+}
+
+/* Glowing border effect */
+@keyframes heroGlow {
+    0% {
+        box-shadow: 0 0 20px rgba(0, 255, 204, 0.4);
+    }
+    100% {
+        box-shadow: 0 0 50px rgba(0, 255, 204, 0.8);
+    }
+}
+
+.hero-content h1 {
+    font-size: 4.5rem; /* Increased size */
+    font-weight: 700;
+    color: #00ffcc;
+    text-shadow: 0 0 30px #00ffcc, 0 0 50px #00ffcc;
+    opacity: 0;
+    transform: translateY(-30px);
+    animation: fadeInUp 1.5s ease-out forwards;
+}
+
+.hero-content .highlight {
+    color: #ff0077;
+    text-shadow: 0 0 25px #ff0077, 0 0 40px #ff0077;
+}
+
+.hero-content p {
+    font-size: 2.2rem;
+    margin: 15px 0;
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1.8s ease-out forwards;
+}
+
+.btn {
+    display: inline-block;
+    background: linear-gradient(90deg, #00ffcc, #ff0077);
+    color: #0d0d0d;
+    padding: 18px 40px; /* Bigger button */
+    margin-top: 30px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    border-radius: 50px;
+    transition: 0.3s ease-in-out;
+    text-decoration: none;
+    box-shadow: 0 0 15px #00ffcc, 0 0 25px #ff0077;
+    opacity: 0;
+    transform: scale(0.8);
+    animation: fadeInScale 2s ease-out forwards;
+}
+
+.btn:hover {
+    background: #ff0077;
+    color: white;
+    box-shadow: 0 0 20px #ff0077, 0 0 35px #ff0077;
+}
+
+/* Background animation */
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: rgba(0, 255, 204, 0.3);
+    filter: blur(100px);
+    animation: neonBg 6s infinite alternate;
+}
+
+@keyframes neonBg {
+    0% {
+        transform: translate(-50px, -50px);
+    }
+    100% {
+        transform: translate(50px, 50px);
+    }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+
+
+
+
+/* Sections - Advanced Futuristic Glow Effect */
+.section {
+    padding: 120px 12%;
+    text-align: center;
+    background: linear-gradient(135deg, #0a0a0a, #1f1f1f);
+    position: relative;
+    overflow: hidden;
+    border-top: 4px solid #00ffcc;
+    box-shadow: inset 0 0 50px rgba(0, 255, 204, 0.4);
+    animation: sectionPulse 5s infinite alternate ease-in-out;
+    border-radius: 18px;
+}
+
+/* Neon Animated Borders */
+.section::before,
+.section::after {
+    content: "";
+    position: absolute;
+    width: 80%;
+    height: 5px;
+    background: linear-gradient(90deg, #00ffcc, #ff0077, #00ffcc);
+    top: 0;
+    left: 10%;
+    animation: movingBorder 5s infinite alternate ease-in-out;
+    box-shadow: 0 0 25px rgba(0, 255, 204, 0.7);
+}
+
+.section::after {
+    top: unset;
+    bottom: 0;
+}
+/* Sections - Advanced Glow Effect */
+.section {
+    padding: 120px 12%;
+    text-align: center;
+    background: linear-gradient(135deg, #0a0a0a, #1f1f1f);
+    position: relative;
+    overflow: hidden;
+    border-top: 4px solid #00ffcc;
+    box-shadow: inset 0 0 50px rgba(0, 255, 204, 0.4);
+    animation: sectionPulse 5s infinite alternate ease-in-out;
+    border-radius: 18px;
+}
+
+/* Neon Border Animation */
+.section::before,
+.section::after {
+    content: "";
+    position: absolute;
+    width: 80%;
+    height: 5px;
+    background: linear-gradient(90deg, #00ffcc, #ff0077, #00ffcc);
+    top: 0;
+    left: 10%;
+    animation: movingBorder 5s infinite alternate ease-in-out;
+    box-shadow: 0 0 25px rgba(0, 255, 204, 0.7);
+}
+
+.section::after {
+    top: unset;
+    bottom: 0;
+}
+
+/* Section Titles */
+.section h2 {
+    font-size: 3.8rem;
+    margin-bottom: 35px;
+    color: #00ffcc;
+    font-weight: 800;
+    text-shadow: 0 0 20px rgba(0, 255, 204, 0.9);
+    position: relative;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeInDown 1.5s ease-out forwards;
+    transition: 0.3s;
+}
+
+/* Title Hover Effect */
+.section h2:hover {
+    text-shadow: 0 0 40px rgba(0, 255, 204, 1), 0 0 60px rgba(0, 255, 204, 0.8);
+    transform: scale(1.05);
+}
+
+/* Section Content */
+.section p {
+    font-size: 1.9rem;
+    color: #ffffff;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 2s ease-out forwards;
+}
+
+/* Floating Glow Effect */
+@keyframes sectionPulse {
+    0% {
+        box-shadow: inset 0 0 25px rgba(0, 255, 204, 0.3);
+    }
+    100% {
+        box-shadow: inset 0 0 60px rgba(0, 255, 204, 0.6);
+    }
+}
+
+/* Moving Animated Border */
+@keyframes movingBorder {
+    0% {
+        transform: scaleX(1);
+        opacity: 0.7;
+    }
+    50% {
+        transform: scaleX(1.3);
+        opacity: 1;
+    }
+    100% {
+        transform: scaleX(1);
+        opacity: 0.7;
+    }
+}
+
+/* Skills Section Styling */
+#skills ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+    display: inline-block;
+    text-align: left;
+}
+
+#skills li {
+    font-size: 1.8rem;
+    color: #ffffff;
+    background: rgba(0, 255, 204, 0.1);
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 10px;
+    border-left: 4px solid #00ffcc;
+    box-shadow: 0 0 15px rgba(0, 255, 204, 0.3);
+    transition: 0.3s ease-in-out;
+    position: relative;
+    opacity: 0;
+    transform: translateY(15px);
+    animation: fadeInUp 1.5s ease-out forwards;
+}
+
+/* Animated Bullet Points */
+#skills li::before {
+    content: "⚡";
+    color: #ff0077;
+    font-size: 1.5rem;
+    margin-right: 10px;
+}
+
+/* Hover Glow Effect */
+#skills li:hover {
+    transform: scale(1.05);
+    background: rgba(0, 255, 204, 0.2);
+    box-shadow: 0 0 25px rgba(0, 255, 204, 0.7);
+}
+
+/* Smooth Animations */
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+/* Project Cards - Futuristic Glassmorphism */
+/* Project Section - Centered Grid Layout */
+.project-section {
+    padding: 120px 10%;
+    text-align: center;
+    background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
+    position: relative;
+    overflow: hidden;
+    border-top: 3px solid #00ffcc;
+    box-shadow: inset 0 0 40px rgba(0, 255, 204, 0.3);
+    border-radius: 15px;
+}
+
+/* Project Title */
+.project-section h2 {
+    font-size: 3.5rem;
+    margin-bottom: 30px;
+    color: #00ffcc;
+    font-weight: 700;
+    text-shadow: 0 0 15px rgba(0, 255, 204, 0.8);
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeInUp 1.5s ease-out forwards;
+}
+/* Project Cards Grid */
+.project-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 50px;
+}
+
+/* Project Card - Cyberpunk Glassmorphism */
+.project-card {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 30px;
+    border-radius: 18px;
+    text-align: center;
+    width: 350px;
+    border: 2px solid transparent;
+    transition: 0.4s ease-in-out;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 0 25px rgba(0, 255, 204, 0.4);
+    position: relative;
+    overflow: hidden;
+    transform: perspective(800px) rotateX(0deg) rotateY(0deg);
+}
+
+/* Floating & Glowing Effect */
+.project-card:hover {
+    transform: translateY(-12px) scale(1.08) rotateX(5deg) rotateY(-5deg);
+    border-color: #ff0077;
+    box-shadow: 0 0 35px #ff0077, 0 0 50px rgba(255, 0, 119, 0.7);
+}
+
+/* Card Title */
+.project-card h3 {
+    color: #00ffcc;
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 0 0 15px rgba(0, 255, 204, 0.8);
+    transition: 0.3s;
+}
+
+/* Hover Effect on Title */
+.project-card:hover h3 {
+    color: #ff0077;
+    text-shadow: 0 0 25px #ff0077;
+}
+
+/* Glowing Animated Border */
+.project-card::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 18px;
+    border: 3px solid transparent;
+    background: linear-gradient(135deg, transparent, rgba(0, 255, 204, 0.3));
+    animation: pulseBorder 2.5s infinite alternate ease-in-out;
+}
+
+/* Border Pulse Animation */
+@keyframes pulseBorder {
+    0% {
+        border-color: rgba(0, 255, 204, 0.5);
+        box-shadow: 0 0 10px rgba(0, 255, 204, 0.5);
+    }
+    100% {
+        border-color: rgba(255, 0, 119, 0.7);
+        box-shadow: 0 0 25px rgba(255, 0, 119, 0.8);
+    }
+}
+
+/* Fade-in Up Animation */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Contact Section */
+.contact-section {
+    padding: 100px 15%;
+    text-align: center;
+    background: linear-gradient(135deg, #0a0a0a, #161616);
+    border-top: 3px solid #00ffcc;
+    box-shadow: inset 0 0 40px rgba(0, 255, 204, 0.2);
+    border-radius: 20px;
+    margin-bottom: 50px;
+}
+
+/* Contact Title */
+.contact-section h2 {
+    font-size: 3.5rem;
+    color: #00ffcc;
+    text-shadow: 0 0 20px rgba(0, 255, 204, 0.9);
+    margin-bottom: 40px;
+    animation: fadeInUp 1.5s ease-out forwards;
+}
+
+/* Contact Container */
+.contact-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+/* Contact Box */
+.contact-box {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 25px;
+    width: 280px;
+    border-radius: 15px;
+    text-align: center;
+    border: 2px solid transparent;
+    transition: 0.4s ease-in-out;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 0 25px rgba(0, 255, 204, 0.3);
+    position: relative;
+    overflow: hidden;
+    min-height: 180px;
+}
+
+/* Hover Effect */
+.contact-box:hover {
+    transform: translateY(-12px) scale(1.08);
+    border-color: #ff0077;
+    box-shadow: 0 0 30px #ff0077, 0 0 50px rgba(255, 0, 119, 0.7);
+}
+
+/* Contact Icons */
+.contact-box i {
+    font-size: 3rem;
+    color: #00ffcc;
+    text-shadow: 0 0 20px rgba(0, 255, 204, 0.8);
+    margin-bottom: 15px;
+}
+
+/* Contact Links */
+.contact-box a {
+    color: #ffffff;
+    font-size: 1.6rem;
+    text-decoration: none;
+    transition: 0.3s ease;
+    display: block;
+    margin-top: 10px;
+    overflow-wrap: break-word;
+}
+
+.contact-box a:hover {
+    color: #ff0077;
+    text-shadow: 0 0 18px #ff0077;
+}
+
+/* Location Text */
+.contact-box .location-text {
+    font-size: 1.6rem;
+    color: #ffffff;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+    margin-top: 10px;
+}
+
+/* Navigation Box */
+.nav-box {
+    width: 100%;
+    padding: 20px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 20px rgba(0, 255, 204, 0.2);
+    text-align: left;
+}
+
+.nav-box h3 {
+    font-size: 2rem;
+    color: #00ffcc;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-links li {
+    margin-bottom: 10px;
+}
+
+.nav-links li a {
+    font-size: 1.6rem;
+    color: #00ffcc;
+    text-decoration: none;
+    text-shadow: 0 0 15px rgba(0, 255, 204, 0.6);
+    transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: #ff0077;
+    text-shadow: 0 0 18px #ff0077;
+}
+
+/* Extra Info */
+.extra-info {
+    margin-top: 30px;
+    font-size: 1.7rem;
+    color: rgba(255, 255, 255, 0.8);
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+    margin-bottom: 30px;
+}
+
+/* Fade-in Up Animation */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .contact-box {
+        width: 100%;
+        min-height: 150px;
+    }
+
+    .contact-box i {
+        font-size: 2rem;
+    }
+
+    .contact-box a {
+        font-size: 1.4rem;
+    }
+
+    .nav-box {
+        width: 100%;
+    }
+
+    .nav-links li a {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-section h2 {
+        font-size: 2.5rem;
+    }
+
+    .contact-container {
+        padding: 0 15px;
+    }
+}
